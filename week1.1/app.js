@@ -2,6 +2,7 @@
 
 const crypto = require('crypto');
 
+
 function findprefix(prefix){
     let input = 0;
     while(true){
