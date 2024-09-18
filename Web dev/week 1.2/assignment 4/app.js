@@ -2,11 +2,13 @@
 
 function vote(arr){
     console.log("\nEligible Voters are: ");
+    let ans = [];
     for(let i = 0; i < arr.length; i++){
         if(arr[i].age >= 18 && arr[i].gender === "male"){
-            console.log("\nVoter detais:\n Name: " + arr[i].name +"\nAge: " + arr[i].age + "\nGender: " + arr[i].gender);
+            ans.push(arr[i]);
         }
     }
+    return ans;
 }
 
 let user = [
@@ -36,4 +38,5 @@ let user = [
 
 ]
 
-vote(user);
+let result = vote(user);
+console.log(result);
