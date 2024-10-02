@@ -7,7 +7,7 @@ program
   .version("1.0.0")
   .description("CLI file word counter utility");
 
-program.command('count-lines')
+program.command('count-words')
   .description("count the number of lines in a text files")
   .argument('<file>', 'file to count')
   .action(function(file){
@@ -17,7 +17,13 @@ program.command('count-lines')
 
     let filepath = path.join(__dirname, file);
     let text = fs.readFileSync(filepath, "utf-8");
-    let count = text.length;
+    let count = 0;
+
+    for(let i = 0; i < text.length; i++){
+      if(text[i] == " "){
+        count++;
+      }
+    }
 
     console.log(`the number of words in the file ${file} is ${count}`);
   });
