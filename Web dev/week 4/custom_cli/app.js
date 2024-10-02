@@ -19,12 +19,6 @@ program.command('count-words')
     let text = fs.readFileSync(filepath, "utf-8");
     let count = 0;
 
-    // for(let i = 0; i < text.length; i++){
-    //   if(text[i] == " "){
-    //     count++;
-    //   }
-    // }
-
     text = text.split(" ");
     count = text.length;
 
