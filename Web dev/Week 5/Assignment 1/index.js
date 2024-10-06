@@ -45,9 +45,11 @@ app.get("/multiply", function(req, res){
     })
 });
 
-app.get("/divide", function(req, res){
-    let x = req.query.a;
-    let y = req.query.b;
+
+//accepting dynamic arguments usinf " /: "
+app.get("/divide/:a/:b", function(req, res){
+    let x = req.params.a;
+    let y = req.params.b;
     let ans = divide(x, y);
     res.status(200).json({
         msg: `the divide is ${ans}`
