@@ -27,6 +27,11 @@ function signjwt(username, password){
 }
 
 
-const ans = signjwt("test@gmail.com", "testpassword");
 
-console.log(ans);
+
+
+
+const sign = signjwt("test@gmail.com", "testpassword");
+
+console.log(sign);
+
