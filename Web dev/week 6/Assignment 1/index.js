@@ -26,12 +26,36 @@ function signjwt(username, password){
     return token;
 }
 
+function decodejwt(token){
+    const decoded = jwt.decode(token);
 
+    if(decoded){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
 
+function verifyjwt(token){
+    
 
-
+    try{
+        const response = jwt.verify(token, JWT_SECRET);
+        return true;
+    }catch(e){
+        return false;
+    }
+}
 
 const sign = signjwt("test@gmail.com", "testpassword");
 
 console.log(sign);
 
+
+const decode = decodejwt("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3RAZ21haWwuY29tIiwiaWF0IjoxNzI5MTg3OTQ3fQ.5ocac--i9NlHiTqwEPl0n1JDwTViVC8oQwfNLYbLzgQ");
+
+console.log(decode);
+
+const verify = verifyjwt("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3RAZ21haWwuY29tIiwiaWF0IjoxNzI5MTg3OTQ3fQ.5ocac--i9NlHiTqwEPl0n1JDwTViVC8oQwfNLYbLzgQ");
+console.log(verify);
